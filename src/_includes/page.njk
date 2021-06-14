@@ -1,0 +1,7 @@
+{% include "htmlhead.njk" %}
+<main>
+{% block content %}
+  {{ content | safe }}
+{% endblock %}
+</main>
+{% include "htmlfoot.njk" %}
