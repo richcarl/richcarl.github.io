@@ -1,0 +1,30 @@
+body { margin: 0.25in;
+       color: rgb(0, 0, 0);
+       background-color: rgb(204, 204, 153);
+       font-family: Arial,Helvetica,sans-serif;
+       line-height: normal;
+     }
+
+h1, h2, h3 {
+    font-family: Helvetica,Arial,sans-serif;
+}
+
+a:link { color: rgb(153, 0, 51);
+         text-decoration: none;
+       }
+
+a:hover { background-color: rgb(204, 204, 204);
+          text-decoration: none;
+        }
+
+a:visited { color: rgb(0, 51, 153);
+            text-decoration: none;
+          }
+
+blockquote { font-size: 70%;
+             font-style: italic;
+             margin-left: 0.25in;
+           }
+
+pre { font-family: monospace;
+    }

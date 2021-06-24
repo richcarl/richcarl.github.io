@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Richard&#39;s Cygwin Tips</title>
+  <meta name="description" content="Richard&#39;s Cygwin Tips">
+  <link rel="stylesheet" href="/css/stylesheet.css">
+</head>
+<body>
+<header>
+<!-- page header -->
+
+</header>
+
+<nav>
+<!-- navigation -->
+</nav>
+
+<hr>
+
+<main>
+
+  <h1>Richard's Cygwin Tips</h1>
+<p>Cygwin is a free Unix/Linux-like (POSIX) environment for Windows. It
+consists of:</p>
+<ul>
+<li>a DLL (cygwin1.dll) which acts as a Linux API emulation layer</li>
+<li>a collection of programs, config files, documentation, etc.,
+providing a Linux look-and-feel</li>
+</ul>
+<p>The official Cygwin home page is <a href="http://cygwin.com/">http://cygwin.com/</a>.</p>
+<h2>Why Cygwin</h2>
+<ul>
+<li>The MS-DOS/Windows console and command line shell is almost useless,
+there are few available console programs (with very ad hoc
+behaviour), and there is no package management.</li>
+<li>The Unix world has much better consoles and shells, loads of
+standardized and very useful programs, and the Cygwin installer
+program handles downloads and updates for you.</li>
+</ul>
+<h2>How does it work?</h2>
+<ul>
+<li>It is <em>not</em> an emulator or virtual machine - the programs are normal
+Win32 executables that just use the Cygwin DLL.</li>
+<li>The whole point of the Cygwin DLL is that programs written for
+Unix/Linux don't have to be rewritten in order to run under
+Windows.</li>
+<li>This means that <em>huge</em> amounts of free/open source Unix software is
+available also on Windows.</li>
+<li>However, the programs believe that they are running in a Unix
+environment!
+<ul>
+<li>By default, they assume that newlines are LF, not CRLF, but this
+is usually not a problem (see the <a href="http://cygwin.com/faq/faq-nochunks.html#faq.api.cr-lf">Cygwin FAQ entry on the CR/LF
+issue</a>
+for further info.</li>
+<li>For programs that are sensitive to newline conventions, you
+should keep DOS/Windows files separate from Cygwin/Unix files.</li>
+<li>You can use the dos2unix and unix2dos commands to convert or
+normalize newlines in files.</li>
+</ul>
+</li>
+<li>The programs see the Windows file system as if it was a Unix file
+system, with Unix user/group permissions, etc.
+<ul>
+<li>A Unix program compiled under Cygwin does not have to understand
+MS-DOS drive letters.  Instead of &quot;C:\...&quot;, it just sees a
+normal Unix-like path &quot;/cygdrive/c/...&quot;.</li>
+<li>You can use the cygpath command in scripts to convert between
+Unix- and Windows-style paths.</li>
+</ul>
+</li>
+</ul>
+<h2>Installing Cygwin</h2>
+<ol>
+<li>Go to
+<span>http://cygwin.com</span>[<span style="font-family: monospace;">http://cygwin.com</span>](http://cygwin.com)
+and download the file setup.exe</li>
+<li>Save this file somewhere for future use and make a shortcut to it.
+You will run it later every time you want to update or add
+packages.\</li>
+<li>Run the setup.exe program once, <em>without changing any settings</em>
+(except for possibly the install directory). <strong>Keep all RECOMMENDED
+settings and don't add or remove packages yet</strong>.
+<ul>
+<li>ftp.sunet.se is a good mirror if you're in Sweden.</li>
+<li>Detailed setup help can be found
+<a href="http://cygwin.com/cygwin-ug-net/setup-net.html">here</a></li>
+</ul>
+</li>
+<li>After installation, click one of the new icons to start a shell and
+check that things are working.</li>
+<li>Whenever you want to check for updates, just run the setup.exe
+program again (without changing any settings). If there are updated
+versions of packages you already have, they will be automatically
+installed.</li>
+<li>If you want to add or remove packages, do the same thing, but browse
+the package tree and select/deselect packages as you like.</li>
+</ol>
+<h2>Post-install setup</h2>
+<p>When you click the icon to start a Cygwin shell, it runs
+C:\Cygwin\cygwin.bat (if you used C:\Cygwin as the install
+directory). You should edit this file to set up some things:</p>
+<ol>
+<li>Set the CYGWIN environment variable to &quot;ntsec&quot; (if you have NTFS
+partitions). Look
+<a href="http://cygwin.com/cygwin-ug-net/using-cygwinenv.html">here</a> for
+more details.</li>
+<li>Set the HOME environment variable to the DOS path to your home
+directory. If you used C:\Cygwin as install directory, then HOME is
+typically C:\Cygwin\home\username, but there is nothing stopping
+you from changing this to somewhere else.</li>
+<li>You might want to specialize your PATH settings for Cygwin shells.
+For example:<br>
+ set CYGWIN=ntsec<br>
+ set HOME=C:\Cygwin\home\Dorothy\</li>
+</ol>
+<h2>Caveats</h2>
+<ul>
+<li>Many &quot;plain Windows&quot; console programs don't work properly with
+input if they are called from a Cygwin-shell; in particular,
+programs that want to ask the user questions about password etc.
+tend to hang or not print the question until you have pressed enter.
+There is more details on this problem in the <a href="http://code.google.com/p/puttycyg/wiki/FAQ">PuttyCyg
+FAQ</a>.</li>
+<li>Because of package dependencies, you may get Cygwin-versions of
+languages like Perl, Python, Ruby, etc., that you might already have
+native Windows versions of. It can be tricky to make sure that you
+run the right version at the right time. In general, don't try to
+run the Windows versions of such languages from the Cygwin shell,
+but run them from a normal Windows console instead.</li>
+<li>Although you might think it would be convenient to have access to
+Cygwin utilities even when you're not in a Cygwin shell, by putting
+C:/cygwin/bin in your global Windows PATH, this may cause DLL
+conflicts where there are two types of DLLs with the same name
+(tcl84.dll is a common example), or just get you into trouble with
+having both a Cygwin executable and a Windows executable with the
+same name (find.exe is one example). The general advice is <strong>do not
+put cygwin/bin in your Windows PATH!</strong> Use
+<a href="http://gnuwin32.sourceforge.net/">GnuWin32</a> to get the most common
+Unix tools as native Windows programs instead, and put those in your
+Windows path.</li>
+</ul>
+<h2>A better console window</h2>
+<p>By default, Cygwin will use the standard Windows console to run the
+command line interpreter in. Since this sucks in many ways, you should
+use rxtv instead.</p>
+<h3>Rxvt</h3>
+<ol>
+<li>
+<p>Run setup.exe again, and just skip to package selection. In the
+group <em>shells</em>, you should find rxvt: &quot;VT102 terminal emulator for
+both X and Windows&quot;. Select this, and click Next to finish the
+installation.</p>
+</li>
+<li>
+<p>Edit C:\Cygwin\cygwin.bat again, and change the line that starts
+bash (or whatever shell you use) to the following:</p>
+<pre><code>rxvt -e bash --login -i
+</code></pre>
+</li>
+</ol>
+<p>The thing with rxvt is that it is really an X11 application, but it also
+works on Windows without an X11 server running. Either way, you can
+configure it in your $HOME/.Xresources file; e.g., like this:</p>
+<pre><code> rxvt.geometry: 80x32
+ rxvt.boldFont: Lucida Console-12
+ rxvt.font: Lucida Console-12
+ rxvt.loginShell: True
+ rxvt.saveLines: 5000
+ rxvt.scrollBar_right: True
+ rxvt.visualBell: True
+</code></pre>
+<h2>Configuring tab-completion etc.</h2>
+<p>The shell (bash) uses the GNU Readline library to read lines of input.
+This is where the input history, tab-completion, etc., is handled. You
+can configure it by editing your $HOME/.inputrc file. Here is an
+example:</p>
+<pre><code> # These are for proper 8-bit characters (åäö, etc.)
+ set meta-flag on
+ set input-meta on
+ set output-meta on
+ set convert-meta off
+
+ # Just flash screen, don't beep
+ set bell-style visible
+
+ # Be case-insensitive (nice on Windows machines)
+ set completion-ignore-case on
+
+ # These are also nice for tab-completion
+ set completion-query-items 16
+ set mark-symlinked-directories on
+ set print-completions-horizontally on
+ set show-all-if-unmodified on
+
+ # Home Key
+ &quot;\e[7~&quot;:beginning-of-line
+
+ # End Key
+ &quot;\e[8~&quot;:end-of-line
+
+ # Ctrl-cursor right/left
+ # (change to end-of-line/beginning-of-line if you prefer)
+ &quot;\eOc&quot;:forward-word
+ &quot;\eOd&quot;:backward-word
+
+ # Alt-cursor right/left
+ &quot;\e\e[C&quot;:forward-word
+ &quot;\e\e[D&quot;:backward-word
+
+ # Page up/down for beginning/end of history
+ &quot;\e[5~&quot;:beginning-of-history
+ &quot;\e[6~&quot;:end-of-history
+</code></pre>
+<p>Run &quot;man readline&quot; for details and more options. An easy way of
+checking the control sequence generated by a keypress is to run the
+command &quot;<span style="font-family: monospace;">od -c</span>&quot; and type away. End
+by pressing Ctrl-d twice. Where the output says &quot;033&quot;, use &quot;\e&quot; in
+the file.</p>
+<h2>Starting an X server</h2>
+<p>An X server is useful for running GUI programs on remote Unix machines,
+but have the windows pop up on your local screen instead.</p>
+<p>First, you need to run the Cygwin setup.exe program and install at least
+the package xorg-x11-base (in the package group X11). See
+<a href="http://x.cygwin.com/docs/ug/setup-cygwin-x-installing.html">here</a> for
+detailed help.</p>
+<p>After installation, the easiest way to start the X server is probably by
+creating a shortcut to the file
+C:\Cygwin\usr\X11R6\bin\startxwin.bat. You shouldn't need to edit
+the .bat file, but you might want to take a look at it just to see what
+it is doing. More details
+<a href="http://x.cygwin.com/docs/ug/using.html">here</a>.</p>
+<p>Note that when the server is running, you can control it through an icon
+in the Windows tray.</p>
+<hr>
+<p><a href="index.html">Back to Richard's home page</a></p>
+
+
+</main>
+<hr>
+
+<footer>
+
+</footer>
+
+</body>
+</html>
+
