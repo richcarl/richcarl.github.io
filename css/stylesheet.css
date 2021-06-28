@@ -1,5 +1,10 @@
+html {
+    max-width: max-content;
+    margin: auto;
+}
+
 body {
-    margin: 0.25in;
+    margin: 1rem;
     color: rgb(0, 0, 0);
     background-color: rgb(204, 204, 153);
     font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
@@ -22,7 +27,7 @@ a:hover {
 blockquote {
     font-size: 75%;
     font-style: italic;
-    margin-left: 0.25in;
+    margin-left: 2rem;
 }
 
 pre {
