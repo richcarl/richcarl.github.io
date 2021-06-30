@@ -11,4 +11,5 @@ serve:
 init:
 	npm init
 	npm install --save-dev @11ty/eleventy
+	npm install --save-dev @11ty/eleventy-navigation
 	npm install --save-dev markdown-it-attrs markdown-it-bracketed-spans

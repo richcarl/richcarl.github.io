@@ -23,6 +23,7 @@
   "homepage": "https://github.com/richcarl/richcarl.github.io#readme",
   "devDependencies": {
     "@11ty/eleventy": "^0.12.1",
+    "@11ty/eleventy-navigation": "^0.3.2",
     "markdown-it-attrs": "^4.0.0",
     "markdown-it-bracketed-spans": "^1.0.1",
     "markdown-it-div": "^1.1.0"

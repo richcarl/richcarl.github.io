@@ -2,6 +2,10 @@
 title: "Richard's Cygwin Tips"
 layout: page.njk
 description: "Richard's Cygwin Tips"
+eleventyNavigation:
+  key: Cygwin
+  title: Cygwin Tips
+  parent: Home
 ---
 # Richard\'s Cygwin Tips
 

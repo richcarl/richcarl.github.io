@@ -2,6 +2,8 @@
 title: Richard's Home Page
 layout: page.njk
 description: Richard's home page
+eleventyNavigation:
+  key: Home
 ---
 <style type="text/css">
 .contact {

@@ -10,11 +10,30 @@
 <body>
 <header>
 <!-- page header -->
+<nav>
+<style>
+  .nav-item-active {
+  font-weight: bold;
+  }
+</style>
+<!-- navigation -->
+{{ collections.all
+   | eleventyNavigation
+   | eleventyNavigationToHtml({ activeKey: eleventyNavigation.key,
+                                listItemClass: "nav-item",
+                                activeListItemClass: "nav-item-active"})
+   | safe }}
+</nav>
+
+{% set crumbs = collections.all
+   | eleventyNavigationBreadcrumb(eleventyNavigation.key) %}
+<div class="crumbs">
+{% for crumb in crumbs -%}
+  <a class="crumb" href="{{ crumb.url | url }}">{{ crumb.title }}</a> /
+{% endfor %}
+<span class="last-crumb">{{ eleventyNavigation.title }}</span>
+
 {{ headercontent }}
 </header>
-
-<nav>
-<!-- navigation -->
-</nav>
 
 <hr>

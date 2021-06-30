@@ -4,6 +4,9 @@ module.exports = function(config) {
     config.addPassthroughCopy('./src/js/');
     config.addPassthroughCopy('./src/images/');
 
+    // Add the navigation plugin
+    config.addPlugin( require('@11ty/eleventy-navigation') );
+
     // We want the attrs and bracketed-spans extensions
     let markdownIt = require("markdown-it");
     config.setLibrary("md",
