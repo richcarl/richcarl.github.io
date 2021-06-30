@@ -13,8 +13,8 @@ module.exports = function(config) {
                       .use(require("markdown-it-bracketed-spans")));
 
     return {
-        //markdownTemplateEngine: "njk",
-        //htmlTemplateEngine: "njk",
+        markdownTemplateEngine: "njk",
+        htmlTemplateEngine: "njk",
         dir: {
             input: 'src'
             //output: 'docs'  // default: _site

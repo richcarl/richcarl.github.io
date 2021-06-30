@@ -24,9 +24,9 @@ This will be my personal home page for the foreseeable future.
 ### Contact Information
 E-mail: carlsson.richard@gmail.com
 ::: sites
-[![Blogger](images/blogger_24.png "Blogger")](http://richardcarlsson.blogspot.com/)
-[![Last.FM](images/last_fm.png "Last.FM")](http://www.lastfm.se/user/satanstornade/)
-[![Flickr](images/flickr.png "Flickr")](http://www.flickr.com/photos/rich_4711/)
+{% for site in my_sites -%}
+[![{{ site.name }}]({{ site.logo }} "{{ site.name }}")]({{ site.url }})
+{% endfor %}
 :::
 :::
 

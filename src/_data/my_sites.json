@@ -1,0 +1,14 @@
+    [
+        {"name": "Blogger",
+         "url": "http://richardcarlsson.blogspot.com/",
+         "logo": "images/blogger_24.png"
+        },
+        {"name": "Last.FM",
+         "url": "http://www.lastfm.se/user/satanstornade/",
+         "logo": "images/last_fm.png"
+        },
+        {"name": "Flickr",
+         "url": "http://www.flickr.com/photos/rich_4711/",
+         "logo": "images/flickr.png"
+        }
+    ]
