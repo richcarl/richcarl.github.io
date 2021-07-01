@@ -10,12 +10,41 @@
 <body>
 <header>
 <!-- page header -->
+<nav>
+<style>
+  .nav-list, .nav-list ul {
+      list-style-type: none;
+      padding: 0 0 0 1rem;
+      width: max-content;
+  }
+  .nav-item {
+      padding: 0.2rem 0 0 0;
+  }
+  .nav-anchor {
+      display: block;
+      text-decoration: none;
+  }
+  .nav-anchor:hover {
+      background-color: #555;
+      color: white;
+  }  
+  .nav-anchor-active {
+      font-weight: bold;
+  }
+</style>
+<!-- navigation -->
+<ul class="nav-list"><li class="nav-item"><a href="/" class="nav-anchor">Home</a><ul><li class="nav-item"><a href="/cygwin/" class="nav-anchor">Cygwin Tips</a></li>
+<li class="nav-item nav-item-active"><a href="/free_software_for_windows/" class="nav-anchor nav-anchor-active">Free Software for Windows</a></li></ul></li></ul>
+</nav>
+
+
+<div class="crumbs">
+<a class="crumb" href="/">Home</a> /
+
+<span class="last-crumb">Free Software for Windows</span>
+
 
 </header>
-
-<nav>
-<!-- navigation -->
-</nav>
 
 <hr>
 
@@ -292,8 +321,6 @@ graphs and figures</li>
 <li><a href="http://www.blender.org/">Blender</a> - advanced 3D modelling and
 rendering</li>
 </ul>
-<hr>
-<p><a href="index.html">Back to Richard's home page</a></p>
 
 
 </main>

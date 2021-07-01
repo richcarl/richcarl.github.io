@@ -10,12 +10,40 @@
 <body>
 <header>
 <!-- page header -->
+<nav>
+<style>
+  .nav-list, .nav-list ul {
+      list-style-type: none;
+      padding: 0 0 0 1rem;
+      width: max-content;
+  }
+  .nav-item {
+      padding: 0.2rem 0 0 0;
+  }
+  .nav-anchor {
+      display: block;
+      text-decoration: none;
+  }
+  .nav-anchor:hover {
+      background-color: #555;
+      color: white;
+  }  
+  .nav-anchor-active {
+      font-weight: bold;
+  }
+</style>
+<!-- navigation -->
+<ul class="nav-list"><li class="nav-item nav-item-active"><a href="/" class="nav-anchor nav-anchor-active">Home</a><ul><li class="nav-item"><a href="/cygwin/" class="nav-anchor">Cygwin Tips</a></li>
+<li class="nav-item"><a href="/free_software_for_windows/" class="nav-anchor">Free Software for Windows</a></li></ul></li></ul>
+</nav>
+
+
+<div class="crumbs">
+
+<span class="last-crumb">Home</span>
+
 
 </header>
-
-<nav>
-<!-- navigation -->
-</nav>
 
 <hr>
 
