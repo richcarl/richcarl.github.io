@@ -1,21 +1,16 @@
 {
   "name": "richcarl.github.io",
   "version": "1.0.0",
-  "description": "Github Pages",
-  "main": "index.js",
+  "description": "Sources for https://richcarl.github.io/",
+  "main": ".eleventy.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "make build"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/richcarl/richcarl.github.io.git"
   },
-  "keywords": [
-    "github",
-    "pages"
-  ],
-  "author": "Richard Carlsson",
+  "author": "carlsson.richard@gmail.com",
   "license": "UNLICENSED",
   "bugs": {
     "url": "https://github.com/richcarl/richcarl.github.io/issues"
@@ -24,11 +19,9 @@
   "devDependencies": {
     "@11ty/eleventy": "^0.12.1",
     "@11ty/eleventy-navigation": "^0.3.2",
+    "markdown-it": "^10.0.0",
     "markdown-it-attrs": "^4.0.0",
     "markdown-it-bracketed-spans": "^1.0.1",
     "markdown-it-div": "^1.1.0"
-  },
-  "dependencies": {
-    "markdown-it": "^12.0.6"
   }
 }
