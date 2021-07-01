@@ -279,7 +279,3 @@ work.)
 -   [Wings 3D](http://www.wings3d.com/) - easy to use 3D modeller
 -   [Blender](http://www.blender.org/) - advanced 3D modelling and
     rendering
-
-------------------------------------------------------------------------
-
-[Back to Richard\'s home page](index.html)

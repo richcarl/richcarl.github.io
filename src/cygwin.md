@@ -219,7 +219,3 @@ it is doing. More details
 
 Note that when the server is running, you can control it through an icon
 in the Windows tray.
-
-------------------------------------------------------------------------
-
-[Back to Richard\'s home page](index.html)
