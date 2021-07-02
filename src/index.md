@@ -9,7 +9,7 @@ eleventyNavigation:
 .contact {
     float:left;
     text-align: center;
-    padding: 0 3rem;
+    padding: 0 1rem;
     max-width: fit-content;
 }
 </style>

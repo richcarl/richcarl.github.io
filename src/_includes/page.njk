@@ -1,7 +1,17 @@
 {% include "htmlhead.njk" %}
 <main>
+{% set crumbs = collections.all
+   | eleventyNavigationBreadcrumb(eleventyNavigation.key) %}
+<div class="crumbs">
+{% for crumb in crumbs -%}
+  <a class="crumb" href="{{ crumb.url | url }}">{{ crumb.title }}</a> /
+{% endfor %}
+<span class="last-crumb">{{ eleventyNavigation.title | default(eleventyNavigation.key) }}</span>
+<hr>
+
 {% block content %}
   {{ content | safe }}
 {% endblock %}
+
 </main>
 {% include "htmlfoot.njk" %}

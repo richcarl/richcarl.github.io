@@ -8,30 +8,13 @@
   <link rel="stylesheet" href="/css/stylesheet.css">
 </head>
 <body>
+<div class=main-grid>
 <header>
 <!-- page header -->
+{{ headercontent }}
+</header>
+<div class=left-column>
 <nav>
-<style>
-  .nav-list, .nav-list ul {
-      list-style-type: none;
-      padding: 0 0 0 1rem;
-      width: max-content;
-  }
-  .nav-item {
-      padding: 0.2rem 0 0 0;
-  }
-  .nav-anchor {
-      display: block;
-      text-decoration: none;
-  }
-  .nav-anchor:hover {
-      background-color: #555;
-      color: white;
-  }  
-  .nav-anchor-active {
-      font-weight: bold;
-  }
-</style>
 <!-- navigation -->
 {{ collections.all
    | eleventyNavigation
@@ -43,16 +26,6 @@
                                 activeListItemClass: "nav-item-active"})
    | safe }}
 </nav>
-
-{% set crumbs = collections.all
-   | eleventyNavigationBreadcrumb(eleventyNavigation.key) %}
-<div class="crumbs">
-{% for crumb in crumbs -%}
-  <a class="crumb" href="{{ crumb.url | url }}">{{ crumb.title }}</a> /
-{% endfor %}
-<span class="last-crumb">{{ eleventyNavigation.title | default(eleventyNavigation.key) }}</span>
-
-{{ headercontent }}
-</header>
-
-<hr>
+</div>
+<div class=right-column>
+</div>
