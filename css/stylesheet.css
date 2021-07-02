@@ -2,15 +2,38 @@ html {
     max-width: max-content;
     margin: auto;
 }
-
 body {
-    margin: 1rem;
     color: rgb(0, 0, 0);
     background-color: rgb(204, 204, 153);
     font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
-    max-width: 52rem;
 }
-
+.main-grid {
+    display: grid;
+    grid-gap: 0.5rem;
+}
+header {
+    grid-area: 1 / 1 / span 1 / span 3;
+    background-color: #f1f1f1;
+}
+main {
+    grid-area: 2 / 2 / span 1 / span 1;
+    max-width: 46rem;
+    min-width: 18rem;
+}
+footer {
+    grid-area: 3 / 1 / span 1 / span 3;
+    background-color: #f1f1f1;
+}
+.left-column {
+    grid-area: 2 / 1 / span 1 / span 1;
+    width: 12rem;
+    margin-top: 3rem;
+}
+.right-column {
+    grid-area: 2 / 3 / span 1 / span 1;
+    width: 12rem;
+    margin-top: 2rem;
+}
 a:link {
     color: rgb(153, 0, 51);
     text-decoration: none;
@@ -23,17 +46,42 @@ a:hover {
     background-color: rgb(204, 204, 204);
     text-decoration: none;
 }
-
 blockquote {
     font-size: 75%;
     font-style: italic;
     margin-left: 2rem;
 }
-
 pre {
     font-family: Consolas,monaco,monospace;
     font-size: 115%;
 }
+
+/* specific classes */
+
+.nav-list {
+    background-color: #f1f1f1;
+    margin: 1rem;
+}
+.nav-list, .nav-list ul {
+    list-style-type: none;
+    padding: 0 0.5rem 0 1rem;
+}
+.nav-item {
+    padding: 0.2rem 0 0 0;
+}
+.nav-anchor {
+    display: block;
+    text-decoration: none;
+}
+.nav-anchor:hover {
+    background-color: #555;
+    color: white;
+}
+.nav-anchor-active {
+    font-weight: bold;
+}
+
+/* reusable classes */
 
 .container {
   display: flow-root;
@@ -41,7 +89,7 @@ pre {
 
 .image-tile {
     float: left;
-    margin: 1rem 2rem;
+    margin: 1rem;
     text-align: center;
 }
 .image-tile img {
