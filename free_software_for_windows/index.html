@@ -9,15 +9,31 @@
 </head>
 <body>
 <div class=main-grid>
-<header>
 <!-- page header -->
+<header>
+  <!-- top level menu -->
+  <div id="topmenu">
+    <input type="checkbox" id="topmenu-toggle"><label for="topmenu-toggle"><span id="topmenu-burger">E</span><span id="topmenu-close">X</span></label>
+    <ul id="topmenu-list">
+      <li class="topmenu-item">
+        <a href="/cygwin/">Cygwin Tips</a>
+      </li>
+      <li class="topmenu-item-active">
+        <a href="/free_software_for_windows/">Free Software for Windows</a>
+      </li>
+      <li class="topmenu-item">
+        <a href="/">Home</a>
+      </li>
+    </ul>
+  </div>
 
 </header>
 <div class=left-column>
 <nav>
 <!-- navigation -->
-<ul class="nav-list"><li class="nav-item"><a href="/" class="nav-anchor">Home</a><ul><li class="nav-item"><a href="/cygwin/" class="nav-anchor">Cygwin Tips</a></li>
-<li class="nav-item nav-item-active"><a href="/free_software_for_windows/" class="nav-anchor nav-anchor-active">Free Software for Windows</a></li></ul></li></ul>
+<ul class="nav-list"><li class="nav-item"><a href="/cygwin/" class="nav-anchor">Cygwin Tips</a></li>
+<li class="nav-item nav-item-active"><a href="/free_software_for_windows/" class="nav-anchor nav-anchor-active">Free Software for Windows</a></li>
+<li class="nav-item"><a href="/" class="nav-anchor">Home</a></li></ul>
 </nav>
 </div>
 <div class=right-column>
@@ -26,7 +42,6 @@
 <main>
 
 <div class="crumbs">
-<a class="crumb" href="/">Home</a> /
 
 <span class="last-crumb">Free Software for Windows</span>
 <hr>
