@@ -9,8 +9,20 @@
 </head>
 <body>
 <div class=main-grid>
-<header>
 <!-- page header -->
+<header>
+  <!-- top level menu -->
+  <div id="topmenu">
+    <input type="checkbox" id="topmenu-toggle"><label for="topmenu-toggle"><span id="topmenu-burger">E</span><span id="topmenu-close">X</span></label>
+    {% set menuPages = collections.all | eleventyNavigation -%}
+    <ul id="topmenu-list">
+      {%- for entry in menuPages %}
+      <li{% if entry.url == page.url %} class="topmenu-item-active"{% else %} class="topmenu-item"{% endif %}>
+        <a href="{{ entry.url | url }}">{{ entry.title }}</a>
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
 {{ headercontent }}
 </header>
 <div class=left-column>

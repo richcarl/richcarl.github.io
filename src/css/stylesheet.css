@@ -34,18 +34,6 @@ footer {
     width: 12rem;
     margin-top: 2rem;
 }
-@media (max-width: 1024px) {
-    .right-column {
-        width: 0;
-        overflow: hidden;
-    }
-}
-@media (max-width: 768px) {
-    .left-column {
-        width: 0;
-        overflow: hidden;
-    }
-}
 a:link {
     color: rgb(153, 0, 51);
     text-decoration: none;
@@ -93,6 +81,32 @@ pre {
     font-weight: bold;
 }
 
+#topmenu-toggle {
+    display: none;
+}
+
+#topmenu-toggle + label {
+    position: absolute;
+    cursor: pointer;
+    right: 1rem;
+}
+
+#topmenu-toggle:checked ~ label #topmenu-burger {
+    display: none;
+}
+
+#topmenu-toggle:not(:checked) ~ label #topmenu-close {
+    display: none;
+}
+
+#topmenu-toggle:not(:checked) ~ #topmenu-list li {
+    display: none
+}
+
+#topmenu-list {
+    list-style: none;
+}
+
 /* reusable classes */
 
 .container {
@@ -111,4 +125,23 @@ pre {
     /* markdown adds a 'p' element around the img - make it have no effect */
     display: inline;
     margin: 0;
+}
+
+/* media settings */
+@media (max-width: 1024px) {
+    .right-column {
+        width: 0;
+        overflow: hidden;
+    }
+}
+@media (max-width: 768px) {
+    .left-column {
+        width: 0;
+        overflow: hidden;
+    }
+}
+@media (min-width: 768px) {
+    #topmenu {
+        display: none;
+    }
 }

@@ -5,7 +5,6 @@ description: Free Software for Windows
 eleventyNavigation:
   key: WindowsFreeSoftware
   title: Free Software for Windows
-  parent: Home
 ---
 # Free Software for Windows
 
