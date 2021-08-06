@@ -58,16 +58,19 @@ pre {
 
 /* specific classes */
 
+.nav-bar {
+    margin: 0.2rem;
+}
 .nav-list {
     background-color: #f1f1f1;
-    margin: 1rem;
+    padding-bottom: 1rem;  /* item spacing after last item */
 }
 .nav-list, .nav-list ul {
     list-style-type: none;
-    padding: 0 0.5rem 0 1rem;
+    padding-left: 1rem;  /* indentation for nesting */
 }
 .nav-item {
-    padding: 0.2rem 0 0 0;
+    padding-top: 1rem;  /* item spacing */
 }
 .nav-anchor {
     display: block;
@@ -81,30 +84,42 @@ pre {
     font-weight: bold;
 }
 
+#topmenu-list {
+    list-style: none;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+/* if wide enough, we use a static horizontal top menu without an icon */
+@media (min-width: 512px) {
+    #topmenu-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    #topmenu-icon {
+        display: none;
+    }
+}
 #topmenu-toggle {
     display: none;
 }
-
 #topmenu-toggle + label {
     position: absolute;
     cursor: pointer;
     right: 1rem;
 }
-
 #topmenu-toggle:checked ~ label #topmenu-burger {
     display: none;
 }
-
 #topmenu-toggle:not(:checked) ~ label #topmenu-close {
     display: none;
 }
-
-#topmenu-toggle:not(:checked) ~ #topmenu-list li {
-    display: none
-}
-
-#topmenu-list {
-    list-style: none;
+/* only hide the top menu on toggle if the menu icon is being displayed */
+@media (max-width: 511px) {
+    #topmenu-toggle:not(:checked) ~ #topmenu-list li {
+        display: none
+    }
 }
 
 /* reusable classes */
@@ -134,7 +149,7 @@ pre {
         overflow: hidden;
     }
 }
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .left-column {
         width: 0;
         overflow: hidden;

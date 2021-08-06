@@ -13,7 +13,7 @@
 <header>
   <!-- top level menu -->
   <div id="topmenu">
-    <input type="checkbox" id="topmenu-toggle"><label for="topmenu-toggle"><span id="topmenu-burger">E</span><span id="topmenu-close">X</span></label>
+    <input type="checkbox" id="topmenu-toggle"><label for="topmenu-toggle" id="topmenu-icon"><span id="topmenu-burger">E</span><span id="topmenu-close">X</span></label>
     {% set menuPages = collections.all | eleventyNavigation -%}
     <ul id="topmenu-list">
       {%- for entry in menuPages %}
@@ -28,15 +28,17 @@
 <div class=left-column>
 <nav>
 <!-- navigation -->
-{{ collections.all
-   | eleventyNavigation
-   | eleventyNavigationToHtml({ activeKey: eleventyNavigation.key,
-                                listClass: "nav-list",
-                                anchorClass: "nav-anchor",
-                                activeAnchorClass: "nav-anchor-active",
-                                listItemClass: "nav-item",
-                                activeListItemClass: "nav-item-active"})
-   | safe }}
+  <div class="nav-bar">
+    {{ collections.all
+     | eleventyNavigation
+     | eleventyNavigationToHtml({ activeKey: eleventyNavigation.key,
+                                  listClass: "nav-list",
+                                  anchorClass: "nav-anchor",
+                                  activeAnchorClass: "nav-anchor-active",
+                                  listItemClass: "nav-item",
+                                  activeListItemClass: "nav-item-active"})
+     | safe }}
+  </div>
 </nav>
 </div>
 <div class=right-column>

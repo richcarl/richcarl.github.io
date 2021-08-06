@@ -4,6 +4,7 @@ layout: page.njk
 description: Richard's home page
 eleventyNavigation:
   key: Home
+  order: -1
 ---
 <style type="text/css">
 .contact {
