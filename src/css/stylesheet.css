@@ -82,6 +82,12 @@ pre {
 .nav-anchor-active {
     font-weight: bold;
 }
+.crumbs {
+    font-size: smaller;
+}
+.last-crumb {
+    font-weight: bold;
+}
 #topmenu {
     background-color: #f1f1f1;
     padding: 0.1rem;
